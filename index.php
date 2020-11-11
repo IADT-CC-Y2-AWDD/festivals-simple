@@ -58,6 +58,7 @@ finally {
         <div>
           <h1>Our festivals</h1>
           <div class="row">
+          <!-- for each festival, display a card with some of the details of the festival -->
           <?php foreach ($festivals as $festival) { ?>
             <div class="col mb-4">
               <div class="card" style="width:15rem;">

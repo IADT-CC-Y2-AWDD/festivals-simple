@@ -1,6 +1,7 @@
 <?php 
 require_once 'config.php'; 
 
+// redirect the user to their home page if they are logged in
 if (is_logged_in()) {
   redirect("/home.php");
 }
@@ -27,13 +28,16 @@ if (is_logged_in()) {
 
           <div class="form-field">
             <label for="email">Email:</label>
+            <!-- display an input text box with the previous value if any -->
             <input type="text" name="email" id="email" value="<?= input("email") ?>" />
+            <!-- display span element with a validation error message if any -->
             <span class="error"><?= error("email") ?></span>
           </div>
 
           <div class="form-field">
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" />
+            <!-- display span element with a validation error message if any -->
             <span class="error"><?= error("password") ?></span>
           </div>
 

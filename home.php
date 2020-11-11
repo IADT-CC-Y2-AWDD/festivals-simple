@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 
+// redirect the user to the login form if they are not logged in
 if (!is_logged_in()) {
   redirect("/login-form.php");
 }

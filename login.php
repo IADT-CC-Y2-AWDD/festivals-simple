@@ -2,11 +2,12 @@
 require_once 'config.php'; 
 require_once 'lib/validation-register.php';
 
+// redirect the user to their home page if they are logged in
 if (is_logged_in()) {
   redirect("/home.php");
 }
 try {
-  // get the form data
+  // get the expected form data
   $data = get_post_params(['email', 'password']);
   // initially we have no validation errors
   $errors = [];
@@ -65,9 +66,11 @@ catch (Exception $ex) {
   die($ex->getMessage());
 }
 
-// if there were no validation errors and the email address and password were correct log the user in
+// if there were no validation errors and the email address and password were correct,
+// then log the user in
 if (empty($errors)) {
-  // to log the user in, store their email address and name in the session array and redirect them to the user home page
+  // to log the user in, store their email address and name in the session array and redirect
+  // them to the user home page
   $_SESSION['email'] = $user['email'];
   $_SESSION['name'] = $user['name'];
   redirect("/home.php");
